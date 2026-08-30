@@ -1114,19 +1114,13 @@ function imageWidgetPlugin(onOpenLightbox: (src: string, alt: string) => void) {
 }
 
 const markdownHighlightStyle = HighlightStyle.define([
-  {
-    tag: [
-      t.heading1,
-      t.heading2,
-      t.heading3,
-      t.heading4,
-      t.heading5,
-      t.heading6,
-      t.heading,
-    ],
-    color: "var(--editor-heading)",
-    fontWeight: "700",
-  },
+  { tag: t.heading1, color: "var(--h1-color, var(--editor-heading))", fontWeight: "700" },
+  { tag: t.heading2, color: "var(--h2-color, var(--editor-heading))", fontWeight: "700" },
+  { tag: t.heading3, color: "var(--h3-color, var(--editor-heading))", fontWeight: "700" },
+  { tag: t.heading4, color: "var(--h4-color, var(--editor-heading))", fontWeight: "700" },
+  { tag: t.heading5, color: "var(--h5-color, var(--editor-heading))", fontWeight: "700" },
+  { tag: t.heading6, color: "var(--h6-color, var(--editor-heading))", fontWeight: "700" },
+  { tag: t.heading, color: "var(--h1-color, var(--editor-heading))", fontWeight: "700" },
   {
     tag: [t.processingInstruction, t.contentSeparator],
     color: "var(--editor-heading-marker)",
@@ -2136,8 +2130,8 @@ function markdownLivePreviewPlugin() {
               decorations.push(
                 Decoration.line({
                   attributes: {
-                    style: `font-size: ${fontSize}; line-height: 1.3; font-weight: 700; font-family: var(--font-family); color: var(--editor-heading);`,
-                    class: `cm-heading-${level}`,
+                    style: `font-size: ${fontSize}; line-height: 1.3; font-weight: 700; font-family: var(--font-family); color: var(--h${level}-color, var(--editor-heading));`,
+                    class: `cm-heading-${level} cm-header cm-header-${level} HyperMD-header HyperMD-header-${level}`,
                   },
                 }).range(line.from),
               );
