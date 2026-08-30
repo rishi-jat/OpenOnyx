@@ -11,6 +11,7 @@ import App from "./App";
 import { installGlobalTooltips } from "./lib/tooltips";
 import { documentTailwindClasses } from "./styles/documentTailwindClasses";
 import { themeClasses } from "./styles/themeClasses";
+import { SNIPPET_OWNED_CSS_VARS } from "./lib/cssSnippets";
 
 import "@fontsource/inter/300.css";
 import "@fontsource/inter/400.css";
@@ -28,33 +29,7 @@ installGlobalTooltips();
 // Excalidraw copies body styles into an iframe when it reads Obsidian tokens.
 // Mirror the computed Tailwind values, rather than another class set, so this
 // does not alter the selected theme's CSS cascade.
-const SNIPPET_OWNED_VARS = new Set([
-  "--h1-color",
-  "--h2-color",
-  "--h3-color",
-  "--h4-color",
-  "--h5-color",
-  "--h6-color",
-  "--h1-size",
-  "--h2-size",
-  "--h3-size",
-  "--h4-size",
-  "--h5-size",
-  "--h6-size",
-  "--h1-weight",
-  "--h2-weight",
-  "--h3-weight",
-  "--h4-weight",
-  "--h5-weight",
-  "--h6-weight",
-  "--h1-line-height",
-  "--h2-line-height",
-  "--h3-line-height",
-  "--h4-line-height",
-  "--h5-line-height",
-  "--h6-line-height",
-  "--file-line-width",
-]);
+const SNIPPET_OWNED_VARS = new Set<string>(SNIPPET_OWNED_CSS_VARS);
 
 const syncThemeVariablesToBody = () => {
   const computed = getComputedStyle(document.documentElement);

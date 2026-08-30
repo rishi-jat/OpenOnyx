@@ -1,6 +1,7 @@
 import React, { useRef, useCallback } from "react";
 import type { AppSettings } from "../SettingsPage";
 import { PreferenceCard, SliderControl, CustomToggle, SegmentedControl } from "./PreferenceCard";
+import { CssSnippetsPanel } from "./CssSnippetsPanel";
 
 interface LiveThemeStudioProps {
   settings: AppSettings;
@@ -411,6 +412,10 @@ export function LiveThemeStudio({ settings, onUpdateSetting }: LiveThemeStudioPr
             onChange={(v) => onUpdateSetting("quickFontSizeAdjustment", v)}
           />
         </PreferenceCard>
+
+        <div className="pt-4">
+          <CssSnippetsPanel />
+        </div>
 
         <PreferenceCard
           title="Window Frame Style"

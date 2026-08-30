@@ -10,6 +10,7 @@ import {
   isObsidianSnippetPath,
   isOpenOnyxSnippetPath,
   isSnippetPath,
+  SNIPPET_OWNED_CSS_VARS,
   peekSnippetManager,
   mergeAppearanceEnabled,
   openCssSnippetsFolder,
@@ -135,6 +136,11 @@ describe("css snippet helpers", () => {
     expect(isSnippetPath("Notes/pretty.css")).toBe(false);
     expect(isSnippetPath("notes.obsidian/snippets/readme.md")).toBe(false);
     expect(isSnippetPath("copy.openonyx/snippets/pretty.css")).toBe(false);
+  });
+
+  it("keeps heading tokens snippet-owned so body rules can win", () => {
+    expect(SNIPPET_OWNED_CSS_VARS).toContain("--h1-color");
+    expect(SNIPPET_OWNED_CSS_VARS).toContain("--file-line-width");
   });
 
   it("does not treat other snippets folders as vault CSS snippets", () => {

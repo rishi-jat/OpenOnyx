@@ -284,7 +284,7 @@ const splitClasses = {
   root: "flex flex-1 w-full h-full overflow-hidden",
   container: "flex flex-1 w-full h-full overflow-hidden",
   child: "flex flex-col overflow-hidden min-w-0 min-h-0",
-  leafPane: "flex flex-col flex-1 overflow-hidden min-w-0 min-h-0 relative",
+  leafPane: "workspace-leaf flex flex-col flex-1 overflow-hidden min-w-0 min-h-0 relative",
   leafContent: "flex flex-col flex-1 overflow-hidden relative",
   dividerBase: "shrink-0 bg-(--divider-color) z-10 relative hover:bg-(--accent-primary) after:content-[''] after:absolute after:z-[11]",
   dividerHorizontal: "w-px cursor-col-resize after:top-0 after:bottom-0 after:-left-[3px] after:-right-[3px]",

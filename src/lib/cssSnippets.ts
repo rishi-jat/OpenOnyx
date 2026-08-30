@@ -27,6 +27,39 @@ export function safeCssFileName(fileName: string): string | null {
   return base;
 }
 
+/** Tokens snippets are allowed to override. Do not copy these onto body inline. */
+export const SNIPPET_OWNED_CSS_VARS = [
+  "--h1-color",
+  "--h2-color",
+  "--h3-color",
+  "--h4-color",
+  "--h5-color",
+  "--h6-color",
+  "--h1-size",
+  "--h2-size",
+  "--h3-size",
+  "--h4-size",
+  "--h5-size",
+  "--h6-size",
+  "--h1-weight",
+  "--h2-weight",
+  "--h3-weight",
+  "--h4-weight",
+  "--h5-weight",
+  "--h6-weight",
+  "--h1-line-height",
+  "--h2-line-height",
+  "--h3-line-height",
+  "--h4-line-height",
+  "--h5-line-height",
+  "--h6-line-height",
+  "--file-line-width",
+  "--font-text-size",
+  "--font-text",
+  "--inline-title-color",
+  "--inline-title-size",
+] as const;
+
 export function snippetNameFromFile(fileName: string): string | null {
   const base = safeCssFileName(fileName);
   if (!base) return null;

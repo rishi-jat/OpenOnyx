@@ -10,7 +10,7 @@ Drop `.css` files into the vault, toggle them in **Settings → CSS Snippets**, 
 | Piece | What users get |
 | --- | --- |
 | Folders | `.openonyx/snippets/*.css` (default) and `.obsidian/snippets/*.css` (compat). Top-level `.css` only. |
-| UI | Settings → **CSS Snippets**: list, toggle, Refresh, Open folder, Import, New, Edit, Export. OpenOnyx rows also have Rename / Delete. |
+| UI | Settings → **Appearance → CSS Snippets**, and a dedicated **CSS Snippets** page. List, toggle, Refresh, Open folder, Import, New, Edit, Export. OpenOnyx rows also have Rename / Delete. |
 | Persist | `.openonyx/appearance.json` → `enabledCssSnippets`. Seed once from `.obsidian/appearance.json` if the OpenOnyx file is missing. Never write `.obsidian/`. |
 | Collision | Same stem in both folders: the OpenOnyx file wins. Badge: “overrides .obsidian”. |
 | Edit | Opens the file in the note editor as plain text (no Markdown toolbar or Reading view). Edit of an Obsidian snippet **copies** it to `.openonyx/snippets` first. |

@@ -594,13 +594,18 @@ export class SnippetManager {
     }
   }
 
+  private fingerprint(): string {
+    return this.getSnippets()
+      .map((snippet) => `${snippet.id}:${snippet.source}:${snippet.size}:${snippet.modifiedAt}:${snippet.enabled}`)
+      .join("|");
+  }
+
   private async pollForChanges(): Promise<void> {
     if (!this.alive) return;
-    const before = this.getSnippetNames().join("|") + this.getSnippets().map((s) => s.modifiedAt).join(",");
+    const before = this.fingerprint();
     await this.scan();
     await this.loadAllEnabled();
-    const after = this.getSnippetNames().join("|") + this.getSnippets().map((s) => s.modifiedAt).join(",");
-    if (before !== after) this.emit();
+    if (before !== this.fingerprint()) this.emit();
   }
 
   private onFileEvent = (event: Event): void => {
@@ -640,6 +645,7 @@ export class SnippetManager {
     }
     if (typeof window !== "undefined") {
       window.dispatchEvent(new CustomEvent("snippets-changed", { detail: { snippets: this.getSnippets() } }));
+      (window as unknown as { __oo_sync_theme_variables_to_body?: () => void }).__oo_sync_theme_variables_to_body?.();
     }
   }
 }

@@ -62,3 +62,8 @@
 .cm-line.HyperMD-header-6 * {
   color: inherit;
 }
+
+.markdown-source-view.mod-cm6 .cm-content,
+.markdown-preview-view {
+  max-width: var(--file-line-width, none);
+}
