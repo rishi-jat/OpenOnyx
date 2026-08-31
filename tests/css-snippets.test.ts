@@ -141,6 +141,9 @@ describe("css snippet helpers", () => {
   it("keeps heading tokens snippet-owned so body rules can win", () => {
     expect(SNIPPET_OWNED_CSS_VARS).toContain("--h1-color");
     expect(SNIPPET_OWNED_CSS_VARS).toContain("--file-line-width");
+    expect(SNIPPET_OWNED_CSS_VARS).toContain("--background-primary");
+    expect(SNIPPET_OWNED_CSS_VARS).toContain("--text-normal");
+    expect(SNIPPET_OWNED_CSS_VARS).toContain("--link-color");
   });
 
   it("does not treat other snippets folders as vault CSS snippets", () => {

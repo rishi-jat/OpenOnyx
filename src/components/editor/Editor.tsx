@@ -226,7 +226,7 @@ const editorAnnotationEmptyTextClass =
 const editorAnnotationGenerateClass =
   "flex cursor-pointer items-center gap-1.5 rounded border-0 bg-[var(--accent-color,#3b82f6)] px-3 py-1.5 text-xs font-medium text-white";
 const editorContainerClass =
-  "editor-container view-content markdown-source-view cm-s-obsidian mod-cm6 is-live-preview relative flex min-h-0 flex-1 flex-row overflow-hidden";
+  "editor-container view-content markdown-source-view cm-s-obsidian mod-cm6 is-live-preview is-readable-line-width relative flex min-h-0 flex-1 flex-row overflow-hidden";
 const editorLightboxBackdropClass =
   "fixed inset-0 z-[9999] flex items-center justify-center bg-[color-mix(in_srgb,var(--bg-primary)_45%,transparent)] backdrop-blur-[3px]";
 const editorLightboxModalClass =
@@ -2130,7 +2130,7 @@ function markdownLivePreviewPlugin() {
               decorations.push(
                 Decoration.line({
                   attributes: {
-                    style: `font-size: ${fontSize}; line-height: 1.3; font-weight: 700; font-family: var(--font-family); color: var(--h${level}-color, var(--editor-heading));`,
+                    style: `font-size: var(--h${level}-size, ${fontSize}); line-height: var(--h${level}-line-height, 1.3); font-weight: var(--h${level}-weight, 700); font-family: var(--font-text, var(--font-family)); color: var(--h${level}-color, var(--editor-heading));`,
                     class: `cm-heading-${level} cm-header cm-header-${level} HyperMD-header HyperMD-header-${level}`,
                   },
                 }).range(line.from),

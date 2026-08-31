@@ -5006,7 +5006,7 @@ export default function App() {
   return (
     <DragCtx.Provider value={{ dragCtx, setDragCtx }}>
       <div 
-        className={`app${settings.backgroundImage ? " has-wallpaper" : ""}`}
+        className={`app workspace${settings.backgroundImage ? " has-wallpaper" : ""}`}
         style={{
           "--sidebar-width": `${sidebarWidth}px`,
           "--right-sidebar-width": `${rightSidebarWidth}px`,

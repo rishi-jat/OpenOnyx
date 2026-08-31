@@ -253,7 +253,7 @@ const fileExplorerClass =
 const fileExplorerDragClass =
   "bg-[rgba(var(--accent-color-rgb,37,99,235),0.05)] shadow-[inset_0_0_0_2px_var(--accent-primary)]";
 const fileTreeItemBaseClass =
-  "file-tree-item tree-item-self nav-file-title group relative mb-px flex min-h-[28px] w-full cursor-pointer items-center gap-1.5 rounded-[var(--nav-item-radius,6px)] border-0 bg-transparent py-0.5 pl-6 pr-2 text-left font-sans text-[13px] leading-[1.3] text-[var(--nav-item-color)] transition-[background-color,color,box-shadow] duration-75 hover:bg-[var(--nav-item-background-hover)] hover:text-[var(--nav-item-color-hover)]";
+  "file-tree-item tree-item-self group relative mb-px flex min-h-[28px] w-full cursor-pointer items-center gap-1.5 rounded-[var(--nav-item-radius,6px)] border-0 bg-transparent py-0.5 pl-6 pr-2 text-left font-sans text-[13px] leading-[1.3] text-[var(--nav-item-color)] transition-[background-color,color,box-shadow] duration-75 hover:bg-[var(--nav-item-background-hover)] hover:text-[var(--nav-item-color-hover)]";
 const fileTreeItemActiveClass =
   "active !bg-[var(--bg-tree-selected,var(--nav-item-background-selected))] !text-[var(--nav-item-color-selected)] shadow-[0_1px_2px_rgba(15,23,42,0.06)] font-medium";
 const fileTreeItemDraggingClass =
@@ -761,6 +761,7 @@ export function Sidebar({
           <button
             className={cx(
               fileTreeItemBaseClass,
+              entry.isDirectory ? "nav-folder-title" : "nav-file-title",
               isActive && fileTreeItemActiveClass,
               isDragOver && fileTreeItemDragOverClass,
               isDragging && fileTreeItemDraggingClass,
@@ -973,7 +974,7 @@ export function Sidebar({
           <button
             data-sidebar-folder-path={entry.path}
             className={cx(
-              "nn-folder-item",
+              "nn-folder-item nav-folder-title",
               isSelected && "active",
               isDragOver && "bg-[rgba(var(--accent-color-rgb,37,99,235),0.08)] shadow-[inset_0_0_0_1px_var(--accent-primary)]",
               entry.path === draggingPath && "opacity-40 scale-[0.98]"
@@ -1272,7 +1273,7 @@ export function Sidebar({
                   <button
                     data-sidebar-folder-path=""
                     className={cx(
-                      "nn-folder-item",
+                      "nn-folder-item nav-folder-title",
                       selectedFolder === "" && "active",
                       dragOverPath === "" && "bg-[rgba(var(--accent-color-rgb,37,99,235),0.08)] shadow-[inset_0_0_0_1px_var(--accent-primary)]"
                     )}
@@ -1327,7 +1328,7 @@ export function Sidebar({
                             <div
                               key={group.id}
                               className={cx(
-                                "nn-folder-item",
+                                "nn-folder-item nav-folder-title",
                                 activeGroupId === group.id && "active"
                               )}
                             >
@@ -1418,7 +1419,7 @@ export function Sidebar({
                             return (
                               <div
                                 key={note.path}
-                                className={cx("nn-note-card", isActive && "active")}
+                                className={cx("nn-note-card nav-file-title", isActive && "active")}
                                 onClick={(e) => {
                                   if (isRenaming) {
                                     e.stopPropagation();

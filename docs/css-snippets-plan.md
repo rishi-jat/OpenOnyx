@@ -16,7 +16,7 @@ Drop `.css` files into the vault, toggle them in **Settings → CSS Snippets**, 
 | Edit | Opens the file in the note editor as plain text (no Markdown toolbar or Reading view). Edit of an Obsidian snippet **copies** it to `.openonyx/snippets` first. |
 | Live update | In-app writes apply immediately. External editors are picked up by a 2s poll until [#82](https://github.com/OpenOnyx/OpenOnyx/issues/82). |
 | Plugin API | `app.customCss` is the same store as the settings panel. |
-| Honesty | Community snippets that only target Obsidian editor classes (`.cm-s-obsidian`, HyperMD) may do nothing. Common Obsidian CSS variables are aliased onto OpenOnyx tokens. |
+| Honesty | OpenOnyx keeps its own classes (`--bg-primary`, `.onyx-*`). Obsidian names (`--background-primary`, `--h1-color`, `.markdown-preview-view`, `.cm-header-1`, `.nav-file-title`) are also present so existing snippets can apply. Snippets that only target unused Obsidian chrome may still no-op. |
 
 ## Out of scope
 
